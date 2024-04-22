@@ -5,60 +5,60 @@ Updated by Julexar (https://app.roll20.net/users/9989180/julexar)
 GM Commands:
 !cal
 Displays the Calendar Menu
-    --setday --{Insert Number}
-    Sets the current day to the number you input
-    --setmonth --{Insert Number}
-    Sets the current month to the number you input
-    --setyear --{Insert Number}
-    Sets the current year to the number you input
-    --settime --hour --{Insert Number} --minute --{Insert Number}
-    Sets the current time to the numbers you input
-    --advance --{Insert Number} --{short rest, long rest, hour, minute, day, week, month, year}
-    Advances the time by the number/type you input
-    --weather
-    Randomises the Weather
-        --toggle
-        Toggles the Weather Display
-    --moon
-    Resets the Moon Phase
-        --phase --{Insert Name/Number}
-        Sets the Moon Phase according to the name/number you input
-        --toggle
-        Toggles the Moon Display
-    --show
-    Displays the Calendar to the Players
-    --reset
-    Resets the Calendar to the Default Values
+	--setday --{Insert Number}
+	Sets the current day to the number you input
+	--setmonth --{Insert Number}
+	Sets the current month to the number you input
+	--setyear --{Insert Number}
+	Sets the current year to the number you input
+	--settime --hour --{Insert Number} --minute --{Insert Number}
+	Sets the current time to the numbers you input
+	--advance --{Insert Number} --{short rest, long rest, hour, minute, day, week, month, year}
+	Advances the time by the number/type you input
+	--weather
+	Randomises the Weather
+		--toggle
+		Toggles the Weather Display
+	--moon
+	Resets the Moon Phase
+		--phase --{Insert Name/Number}
+		Sets the Moon Phase according to the name/number you input
+		--toggle
+		Toggles the Moon Display
+	--show
+	Displays the Calendar to the Players
+	--reset
+	Resets the Calendar to the Default Values
 
 !month --{Insert Name/Number} --{Insert Name}
 Renames a Month to the Name you input
 
 !alarm
 Displays the Alarm Menu
-    --{Insert Number}
-    Displays the Alarm Menu for the Alarm you input
-        --settile --{Insert Title}
-        Sets the Title of the Alarm
-        --setdate --{Insert Date}
-        Sets the Date of the Alarm (Format: DD.MM.YYYY)
-        --settime --{Insert Time}
-        Sets the Time of the Alarm (Format: HH:MM [24h])
-        --setmessage --{Insert Message}
-        Sets the Message of the Alarm
-    --new
-    Opens the Alarm Creator
-        --title --{Insert Title}
-        Sets the Title of the Alarm
-        --date --{Insert Date}
-        Sets the Date of the Alarm (Format: DD.MM.YYYY)
-        --time --{Insert Time}
-        Sets the Time of the Alarm (Format: HH:MM [24h])
-        --message --{Insert Message}
-        Sets the Message of the Alarm
-    --delete --{Insert Number}
-    Deletes the Alarm you input
-    --reset
-    Resets the Alarms to the Default Values
+	--{Insert Number}
+	Displays the Alarm Menu for the Alarm you input
+		--settile --{Insert Title}
+		Sets the Title of the Alarm
+		--setdate --{Insert Date}
+		Sets the Date of the Alarm (Format: DD.MM.YYYY)
+		--settime --{Insert Time}
+		Sets the Time of the Alarm (Format: HH:MM [24h])
+		--setmessage --{Insert Message}
+		Sets the Message of the Alarm
+	--new
+	Opens the Alarm Creator
+		--title --{Insert Title}
+		Sets the Title of the Alarm
+		--date --{Insert Date}
+		Sets the Date of the Alarm (Format: DD.MM.YYYY)
+		--time --{Insert Time}
+		Sets the Time of the Alarm (Format: HH:MM [24h])
+		--message --{Insert Message}
+		Sets the Message of the Alarm
+	--delete --{Insert Number}
+	Deletes the Alarm you input
+	--reset
+	Resets the Alarms to the Default Values
 
 Player Commands:
 
@@ -96,6 +96,60 @@ const moonPhases = [
 	'Waxing Gibbous',
 ];
 
+const moonImgPhases = [
+	`https://files.d20.io/images/389893889/Bcl_WPuUqOJIP8OO4ooDXQ/max.png?1713793621`,
+	`https://files.d20.io/images/389893905/FyjiQSaw0WPAZHbkhicnrw/max.png?1713793633`,
+	`https://files.d20.io/images/389893892/CkHmX-tKm5KAn21IkyEoLA/max.png?1713793625`,
+	`https://files.d20.io/images/389893902/UnAA93UJ5HhW85kyVCVGxw/max.png?1713793631`,
+	`https://files.d20.io/images/389893898/CpkJzbZmiYEiZV0Cxxaajg/max.png?1713793629`,
+	`https://files.d20.io/images/389893910/Z7F8tRA-naEmJ4o5DkBrog/max.png?1713793638`,
+	`https://files.d20.io/images/389893879/l2ujYbgq36yrmGrKmKgrUQ/max.png?1713793617`,
+	`https://files.d20.io/images/389893914/S0Wy_rP0FiHMKQCRTTAMlQ/max.png?1713793640`
+];
+
+// const moonImgPhases = [
+//	 `https://drive.google.com/uc?export=download&id=1ploTATS_8PDVsnBnJJqa7kaXaQgrgCGF`,
+//	 `https://drive.google.com/uc?export=download&id=1zphqzvtN_nW0V_3PfXqlrvsWvIQpTF2S`,
+//	 `https://drive.google.com/uc?export=download&id=1-AH7nAWzkp8PYtpzJN0eaEuP5O_v8oap`,
+//	 `https://drive.google.com/uc?export=download&id=158QGi478mYm49--8d-LbU9AiLRX3Ok-p`,
+//	 `https://drive.google.com/uc?export=download&id=1HerLO9JpgBtmZwPxPTczVgg4IGMK4xaP`,
+//	 `https://drive.google.com/uc?export=download&id=1rosA7s2n5EccbaiZgSAQLpKwl8_r6KgP`,
+//	 `https://drive.google.com/uc?export=download&id=1uwbz2mc-TzOIJi_0KaOe_b-P1m-OGq17`,
+//	 `https://drive.google.com/uc?export=download&id=1ytJTJHtvUaOLWVmlBqa_7krKuNPTd6wO`
+// ];
+
+// const moonImgPhases = [
+//	 "https://www.dropbox.com/s/yo8aqiyw8y8zbzh/full%20moon.jpg?dl=1",
+//	 "https://www.dropbox.com/s/lgffcyw68w1df9l/waning%20gibbous.jpg?dl=1",
+//	 "https://www.dropbox.com/s/o509ci5j2goqvqc/last%20quarter.jpg?dl=1",
+//	 "https://www.dropbox.com/s/3fccjvk2v88hqqo/waning%20crescent.jpg?dl=1",
+//	 "https://www.dropbox.com/s/jpq8tl2m00e8m0j/new%20moon.jpg?dl=1",
+//	 "https://www.dropbox.com/s/b8p388vrvv3jw2j/waxing%20crescent.jpg?dl=1",
+//	 "https://www.dropbox.com/s/glnn9q9swr5o3wk/first%20quarter.jpg?dl=1",
+//	 "https://www.dropbox.com/s/b4li1bckebp4cua/waxing%20gibbous.jpg?dl=1"
+// ];
+
+// const moonImgPhases = [
+//	 `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 12 12"><path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".6" d="M11 6A5 5 0 1 0 1 6a5 5 0 0 0 10 0zm0 0"/></svg>`,
+//	 `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 12 12"><path style="fill:none;stroke:#000;stroke-width:.60000002;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" d="M11 6A5 5 0 1 0 1 6a5 5 0 0 0 10 0zm0 0" transform="matrix(-1 0 0 1 12 0)"/><path style="fill:#000;fill-opacity:1;stroke:#000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" d="M3.93 6c0-1.953.79-3.72 2.07-5a5 5 0 1 0 0 10 7.049 7.049 0 0 1-2.07-5Z" transform="matrix(-1 0 0 1 12 0)"/></svg>`,
+//	 `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 12 12"><path d="M11 6A5 5 0 1 0 1 6a5 5 0 0 0 10 0zm0 0" style="fill:none;stroke:#000;stroke-width:.6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"/><path d="M11 6a5 5 0 0 0-5-5v10a5 5 0 0 0 5-5Z" style="fill:#000;fill-opacity:1;stroke:none;stroke-width:.60000002;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"/></svg>`,
+//	 `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 12 12"><path style="fill:none;stroke:#000;stroke-width:.6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none" d="M11 6A5 5 0 1 0 1 6a5 5 0 0 0 10 0zm0 0"/><path style="fill:#000;stroke:#000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" d="M11 6a5 5 0 0 0-5-5 7.049 7.049 0 0 0-2.07 5c0 1.953.79 3.72 2.07 5a5 5 0 0 0 5-5Z"/></svg>`,
+//	 `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 12 12"><path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width=".6" d="M11 6A5 5 0 1 0 1 6a5 5 0 0 0 10 0zm0 0"/></svg>`,
+//	 `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 12 12"><path style="fill:none;stroke:#000;stroke-width:.60000002;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" d="M11 6A5 5 0 1 0 1 6a5 5 0 0 0 10 0zm0 0" transform="matrix(-1 0 0 1 12 0)"/><path style="fill:#000;fill-opacity:1;stroke:#000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" d="M11 6a5 5 0 0 0-5-5 7.049 7.049 0 0 0-2.07 5c0 1.953.79 3.72 2.07 5a5 5 0 0 0 5-5Z" transform="matrix(-1 0 0 1 12 0)"/></svg>`,
+//	 `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 12 12"><path d="M11 6A5 5 0 1 0 1 6a5 5 0 0 0 10 0zm0 0" style="fill:none;stroke:#000;stroke-width:.6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"/><path d="M1 6a5 5 0 0 1 5-5v10a5 5 0 0 1-5-5Z" style="fill:#000;fill-opacity:1;stroke:none;stroke-width:.60000002;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"/></svg>`,
+//	 `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 12 12"><path d="M11 6A5 5 0 1 0 1 6a5 5 0 0 0 10 0zm0 0" style="fill:none;stroke:#000;stroke-width:.6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"/><path d="M3.93 6c0-1.953.79-3.72 2.07-5a5 5 0 1 0 0 10 7.049 7.049 0 0 1-2.07-5Z" style="fill:#000;stroke:#000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"/></svg>`
+// ]
+
+// const moonImgPhases = [
+//	 `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDEyIDEyIj48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2Utd2lkdGg9Ii42IiBkPSJNMTEgNkE1IDUgMCAxIDAgMSA2YTUgNSAwIDAgMCAxMCAwem0wIDAiLz48L3N2Zz4K`,
+//	 `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDEyIDEyIj48cGF0aCBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojMDAwO3N0cm9rZS13aWR0aDouNjAwMDAwMDI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjEwO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIiBkPSJNMTEgNkE1IDUgMCAxIDAgMSA2YTUgNSAwIDAgMCAxMCAwem0wIDAiIHRyYW5zZm9ybT0ibWF0cml4KC0xIDAgMCAxIDEyIDApIi8+PHBhdGggc3R5bGU9ImZpbGw6IzAwMDtmaWxsLW9wYWNpdHk6MTtzdHJva2U6IzAwMDtzdHJva2Utd2lkdGg6MDtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiIGQ9Ik0zLjkzIDZjMC0xLjk1My43OS0zLjcyIDIuMDctNWE1IDUgMCAxIDAgMCAxMCA3LjA0OSA3LjA0OSAwIDAgMS0yLjA3LTVaIiB0cmFuc2Zvcm09Im1hdHJpeCgtMSAwIDAgMSAxMiAwKSIvPjwvc3ZnPgo=`,
+//	 `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDEyIDEyIj48cGF0aCBkPSJNMTEgNkE1IDUgMCAxIDAgMSA2YTUgNSAwIDAgMCAxMCAwem0wIDAiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiMwMDA7c3Ryb2tlLXdpZHRoOi42O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDtzdHJva2Utb3BhY2l0eToxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZSIvPjxwYXRoIGQ9Ik0xMSA2YTUgNSAwIDAgMC01LTV2MTBhNSA1IDAgMCAwIDUtNVoiIHN0eWxlPSJmaWxsOiMwMDA7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOi42MDAwMDAwMjtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiLz48L3N2Zz4K`,
+//	 `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDEyIDEyIj48cGF0aCBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2Utd2lkdGg9Ii42IiBkPSJNMTEgNkE1IDUgMCAxIDAgMSA2YTUgNSAwIDAgMCAxMCAwem0wIDAiLz48L3N2Zz4K`,
+//	 `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDEyIDEyIj48cGF0aCBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojMDAwO3N0cm9rZS13aWR0aDouNjAwMDAwMDI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjEwO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIiBkPSJNMTEgNkE1IDUgMCAxIDAgMSA2YTUgNSAwIDAgMCAxMCAwem0wIDAiIHRyYW5zZm9ybT0ibWF0cml4KC0xIDAgMCAxIDEyIDApIi8+PHBhdGggc3R5bGU9ImZpbGw6IzAwMDtmaWxsLW9wYWNpdHk6MTtzdHJva2U6IzAwMDtzdHJva2Utd2lkdGg6MDtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiIGQ9Ik0xMSA2YTUgNSAwIDAgMC01LTUgNy4wNDkgNy4wNDkgMCAwIDAtMi4wNyA1YzAgMS45NTMuNzkgMy43MiAyLjA3IDVhNSA1IDAgMCAwIDUtNVoiIHRyYW5zZm9ybT0ibWF0cml4KC0xIDAgMCAxIDEyIDApIi8+PC9zdmc+Cg==`,
+//	 `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDEyIDEyIj48cGF0aCBkPSJNMTEgNkE1IDUgMCAxIDAgMSA2YTUgNSAwIDAgMCAxMCAwem0wIDAiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiMwMDA7c3Ryb2tlLXdpZHRoOi42O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDtzdHJva2Utb3BhY2l0eToxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZSIvPjxwYXRoIGQ9Ik0xIDZhNSA1IDAgMCAxIDUtNXYxMGE1IDUgMCAwIDEtNS01WiIgc3R5bGU9ImZpbGw6IzAwMDtmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6LjYwMDAwMDAyO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIvPjwvc3ZnPgo=`,
+//	 `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDEyIDEyIj48cGF0aCBkPSJNMTEgNkE1IDUgMCAxIDAgMSA2YTUgNSAwIDAgMCAxMCAwem0wIDAiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiMwMDA7c3Ryb2tlLXdpZHRoOi42O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDtzdHJva2Utb3BhY2l0eToxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZSIvPjxwYXRoIGQ9Ik0zLjkzIDZjMC0xLjk1My43OS0zLjcyIDIuMDctNWE1IDUgMCAxIDAgMCAxMCA3LjA0OSA3LjA0OSAwIDAgMS0yLjA3LTVaIiBzdHlsZT0iZmlsbDojMDAwO3N0cm9rZTojMDAwO3N0cm9rZS13aWR0aDowO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MTtmaWxsLW9wYWNpdHk6MSIvPjwvc3ZnPgo=`
+// ];
+
 const monthNames = ['Hammer', 'Alturiak', 'Ches', 'Tarsakh', 'Mirtul', 'Kythorn', 'Flamerule', 'Eleasias', 'Eleint', 'Marpenoth', 'Uktar', 'Nightal'];
 
 class FaerunCalendar {
@@ -125,6 +179,7 @@ class FaerunCalendar {
 							if (isNaN(day)) return sendChat('Faerûn Calendar', 'Please input a valid number for the day.');
 
 							setDay(day);
+							updMoon();
 							chkAlarms();
 							calendarMenu();
 							break;
@@ -133,6 +188,7 @@ class FaerunCalendar {
 							if (!monthNames.includes(month)) return sendChat('Faerûn Calendar', 'Please input a valid month.');
 
 							setMonth(month);
+							updMoon();
 							chkAlarms();
 							calendarMenu();
 							break;
@@ -141,6 +197,7 @@ class FaerunCalendar {
 							if (isNaN(year)) return sendChat('Faerûn Calendar', 'Please input a valid number for the year.');
 
 							setYear(year);
+							updMoon();
 							chkAlarms();
 							calendarMenu();
 							break;
@@ -152,6 +209,7 @@ class FaerunCalendar {
 
 							setHour(hour);
 							setMinute(minute);
+							updMoon();
 							chkAlarms();
 							calendarMenu();
 							break;
@@ -163,6 +221,7 @@ class FaerunCalendar {
 								return sendChat('Faerûn Calendar', 'Please input a valid type.');
 
 							advance(amount, type);
+							updMoon();
 							chkAlarms();
 							calendarMenu();
 							break;
@@ -365,10 +424,14 @@ function setMinute(minute) {
 }
 
 function updMoon(phase) {
+	log(`updMoon: ${phase}`);
 	if (!phase) {
 		const ordinal = state.calendar.ord;
 		const year = state.calendar.year;
 		const remainder = year / 4 - Math.floor(year / 4);
+		log(`ordinal: ${ordinal}`);
+		log(`year: ${year}`);
+		log(`remainder: ${remainder}`);
 		let moonArray = [];
 
 		switch (remainder) {
@@ -386,8 +449,13 @@ function updMoon(phase) {
 				break;
 		}
 
-		const moonNum = moonArray.split(',');
-		getMoon(moonNum[ordinal % 8]);
+		//const moonNum = moonArray.split(',');
+		log(`ordinal % 8: ${ordinal % 8}`);
+		log(`moonArray: ${moonArray}`);
+		log(`moonArray[ordinal % 8]: ${moonArray[ordinal % 8]}`);
+		log(`state.calendar.moon: ${state.calendar.moon}`);
+		//getMoon(moonArray[ordinal % 8]);
+		getMoon(moonArray[ordinal]);
 	} else {
 		state.calendar.moon = phase;
 	}
@@ -399,19 +467,19 @@ function getMoonArray(num) {
 	switch (num) {
 		case 1:
 			moonArray =
-				'0,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,4,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1';
+				[0,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,4,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1];
 			break;
 		case 2:
 			moonArray =
-				'0,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,14,15,15,16,16,16,0,1,2,2,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1';
+				[0,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,14,15,15,16,16,16,0,1,2,2,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1];
 			break;
 		case 3:
 			moonArray =
-				'0,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,14,15,15,16,16,16,0,1,2,2,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1';
+				[0,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,14,15,15,16,16,16,0,1,2,2,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1];
 			break;
 		case 4:
 			moonArray =
-				'0,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16,0,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16';
+				[0,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,2,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16,0,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,14,15,15,16,16,16,1,2,2,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,15,16,16];
 			break;
 	}
 
@@ -419,60 +487,29 @@ function getMoonArray(num) {
 }
 
 function getMoon(num) {
+	log(`getMoon: ${num}`);
+	let phase;
 	if (num && isNaN(num)) {
-		switch (num.toLowerCase()) {
-			case 'full moon':
-				state.calendar.moon = 'Full Moon';
-				break;
-			case 'waning gibbous':
-				state.calendar.moon = 'Waning Gibbous';
-				break;
-			case 'last quarter':
-				state.calendar.moon = 'Last Quarter';
-				break;
-			case 'waning crescent':
-				state.calendar.moon = 'Waning Crescent';
-				break;
-			case 'new moon':
-				state.calendar.moon = 'New Moon';
-				break;
-			case 'waxing crescent':
-				state.calendar.moon = 'Waxing Crescent';
-				break;
-			case 'first quarter':
-				state.calendar.moon = 'First Quarter';
-				break;
-			case 'waxing gibbous':
-				state.calendar.moon = 'Waxing Gibbous';
-				break;
-		}
+		const phase = {
+			'full moon': 0,
+			'waning gibbous': 1,
+			'last quarter': 2,
+			'waning crescent': 3,
+			'new moon': 4,
+			'waxing crescent': 5,
+			'first quarter': 6,
+			'waxing gibbous': 7
+		}[num.toLowerCase()];
 	} else {
-		switch (num) {
-			case 1 || 0:
-				state.calendar.moon = 'Full Moon';
-				break;
-			case 2 || 3 || 4:
-				state.calendar.moon = 'Waning Gibbous';
-				break;
-			case 5:
-				state.calendar.moon = 'Last Quarter';
-				break;
-			case 6 || 7 || 8:
-				state.calendar.moon = 'Waning Crescent';
-				break;
-			case 9:
-				state.calendar.moon = 'New Moon';
-				break;
-			case 10 || 11 || 12:
-				state.calendar.moon = 'Waxing Crescent';
-				break;
-			case 13:
-				state.calendar.moon = 'First Quarter';
-				break;
-			case 14 || 15 || 16:
-				state.calendar.moon = 'Waxing Gibbous';
-				break;
-		}
+		phase = [0, 0, 1, 1, 1, 2, 3, 3, 3, 4, 5, 5, 5, 6, 7, 7, 7][num];
+	}
+
+	if (phase) {
+		state.calendar.moon = moonPhases[phase];
+		state.calendar.moonImg = moonImgPhases[phase];
+	} else {
+		state.calendar.moon = '';
+		state.calendar.moonImg = '';
 	}
 }
 
@@ -609,6 +646,10 @@ function showCal() {
 	const minute = getMinute();
 	const weather = state.calendar.wtype ? state.calendar.weather : null;
 	const moon = state.calendar.mtype ? state.calendar.moon : null;
+	//const moonImg = (moon && state.calendar.moonImg) ? ('<img src="' + state.calendar.moonImg + '" style="width:30px; height:30px;">') : '';
+	//const moonImg = (moon && state.calendar.moonImg) ? state.calendar.moonImg : '';
+	const moonImg = (moon && state.calendar.moonImg) ? `<img src="${state.calendar.moonImg}" />` : '';
+	log(moonImg);
 
 	switch (weather) {
 		default:
@@ -623,7 +664,7 @@ function showCal() {
 							`${day} of ${month}, ${year}` + //--
 							`<br>Current Time: ${hour}:${minute}<br>` + //--
 							`<br>Today\'s Weather: ${weather}<br>` + //--
-							`<br>Moon Phase: ${moon}<br>` + //--
+							`<br>Moon Phase: ${moon} ${moonImg}` + //--
 							`</div>`
 					);
 					break;
@@ -653,7 +694,7 @@ function showCal() {
 							`<div ${calendar.style.arrow}></div>` + //--
 							`${day} of ${month}, ${year}` + //--
 							`<br>Current Time: ${hour}:${minute}<br>` + //--
-							`<br>Moon Phase: ${moon}<br>` + //--
+							`<br>Moon Phase: ${moon} ${moonImg}` + //--
 							`</div>`
 					);
 					break;
